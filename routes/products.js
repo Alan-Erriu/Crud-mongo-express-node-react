@@ -2,13 +2,13 @@ const express = require('express');
 const {validacion}= require("../middleware/check")
 const router = express.Router();
 const productsController = require("../controllers/productsController")
-// const {validarId}=require("../middleware/validarId")
+
 
 
 
 
 //----------------crear un nuevo producto-------------------------------------------
-router.post("/agregarProducto",productsController.crearProducto)
+router.post("/agregarProducto",validacion,productsController.crearProducto)
 
 
 //----------------ver todos los producto existentes en la base de datos---------------

@@ -1,7 +1,16 @@
+const { validationResult } = require("express-validator");
 const Products =require("../models/products")
 
 const crearProducto = async (req, res) => {
     try {
+      const error = validationResult(req)
+      if(error){
+        res.status(400).json({
+          msg: "error al agregar producto " + error.message,
+          nombreProducto: null,
+          error: error.errors,
+        })
+      }else{
       const producto = new Products(req.body);
       await producto.save();
       res.status(201).json({
@@ -9,6 +18,7 @@ const crearProducto = async (req, res) => {
         nombreProducto: producto.nombreProducto,
         error: null,
       });
+    }
     } catch (error) {
       res.status(500).json({
         msg: "error al agregar producto" + error.message,
