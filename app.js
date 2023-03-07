@@ -3,11 +3,16 @@ const path = require("path");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const connect = require("./database/db");
-
-// const indexRouter = require("./routes/index");
+const cors = require("cors");
 const productsRouter = require("./routes/products");
 
 const app = express();
+const whiteList = ["http://localhost:5173", "http://localhost:3000"];
+app.use(
+  cors({
+    origin: whiteList,
+  })
+);
 
 app.use(logger("dev"));
 app.use(express.json());
