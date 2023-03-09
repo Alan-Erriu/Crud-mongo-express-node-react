@@ -11,7 +11,9 @@ const prodcutsSchema=new Schema({
     categoria:{
         type:String,
         required:true,
-        unique:true
+        unique: false
+        
+        
     },
     precio:{
         type:Number,
