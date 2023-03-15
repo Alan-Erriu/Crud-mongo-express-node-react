@@ -2,7 +2,7 @@ import Nav from "@/components/Nav";
 import Home from "@/components/Home";
 import Products from "@/components/Products";
 import { Routes, Route } from "react-router-dom";
-import EditarProducto from "@/components/EditarProducto";
+import EditProducts from "@/components/EditProducts";
 
 function App() {
   return (
@@ -11,7 +11,7 @@ function App() {
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route exact path="/products" element={<Products />} />
-        <Route exact path="/editarproducto/:_id" element={<EditarProducto />} />
+        <Route exact path="/editarproducto/:_id" element={<EditProducts />} />
       </Routes>
     </div>
   );
