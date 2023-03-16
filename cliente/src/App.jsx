@@ -4,9 +4,10 @@ import Products from "@/components/Products";
 import { Routes, Route } from "react-router-dom";
 import EditProducts from "@/components/EditProducts";
 
+
 function App() {
   return (
-    <div>
+    <div className="container">
       <Nav />
       <Routes>
         <Route exact path="/" element={<Home />} />

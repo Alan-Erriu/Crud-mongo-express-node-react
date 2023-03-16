@@ -2,15 +2,15 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import { BrowserRouter } from "react-router-dom";
-import "@/assets/index.css";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
+import "./main.css"
 
 const theme = createTheme({
   palette: {
     type: "light",
     primary: {
-      main: "#388e3c",
+      main: "#7066e0",
       light: "#ff5ca0",
     },
     secondary: {
@@ -28,7 +28,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <BrowserRouter>
-        <App />
+        <App/>
       </BrowserRouter>
     </ThemeProvider>
   </React.StrictMode>

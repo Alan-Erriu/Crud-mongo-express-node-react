@@ -30,41 +30,51 @@ export default function RecipeReviewCard({
         showCancelButton: true,
         confirmButtonColor: "#3085d6",
         cancelButtonColor: "#d33",
-        confirmButtonText: "Yes, delete it!",
-       
+        confirmButtonText: "Si, borrar!",
       })
       .then((result) => {
         if (result.isConfirmed) {
-          swal.fire(
-            'Deleted!',
-            'Your file has been deleted.',
-            'success'
-          ),setTimeout(borrarProducto, 1000)
+          swal.fire("Borrado!", "El producto fue eliminado.", "success"),
+            setTimeout(borrarProducto, 1000);
         }
-            
       });
   };
   return (
-    <Card sx={{ width: 345, height: 400 }}>
-      <CardHeader title={nombreProducto} subheader={categoria} />
+    <Card
+      sx={{
+        width: { xs: "100%", xl: "90%" },
+        height: "500px",
+        mt: "1rem",
+      }}
+    >
+      {/* <CardHeader title={nombreProducto} subheader={categoria} /> */}
 
       <CardContent>
         <Typography variant="h5" color="text.primary">
-          Características:
+          Producto
         </Typography>
 
         <Typography variant="body1" color="-moz-initial">
-          Categoria: {categoria} <br />
-          En stock: {stock} <br />
-          Código de producto: {_id} <br />
+          <br /><strong> Nombre: </strong>{nombreProducto}
+          <br />
+          <br />
+         <strong>Categoría:</strong>  {categoria} <br />
+          <br />
+          <strong> Precio:</strong> {precio} <br />
+          <br />
+          <strong> En stock:</strong> ${stock}<br /><br />
+          <strong>Código de producto:</strong><br /> {_id} <br />
+          <br />
+        </Typography>
+        <Typography variant="body1" color="green">
         </Typography>
 
-        <Typography variant="body1" color="green">
-          Precio: ${precio}
-        </Typography>
-        <CardActions>
-          <Link to={`/editarproducto/${_id}`}>
-            <Button variant="contained">Editar</Button>
+        <CardActions sx={{ mt: "8px"}}>
+          <Link
+            style={{ textDecoration: "none" }}
+            to={`/editarproducto/${_id}`}
+          >
+            <Button sx={{marginRight:"4px"}} variant="contained">Editar</Button>
           </Link>
           <Button variant="contained" color="error" onClick={modal}>
             Eliminar

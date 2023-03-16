@@ -1,4 +1,4 @@
-import { Box} from "@mui/material";
+import { Box } from "@mui/material";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
@@ -18,10 +18,9 @@ const EditarProducto = () => {
     obtenerProducto();
   }, []);
 
-
-
   return (
-    <Box sx={{ mt: "20rem" }}>
+    <Box sx={{ mt: "8rem" }}>
+      
       {producto.map((item) => (
         <CardEdit key={item._id} producto={item} />
       ))}

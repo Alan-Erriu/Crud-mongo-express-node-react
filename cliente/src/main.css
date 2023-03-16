@@ -1,0 +1,21 @@
+#body {
+  background-color: #f2f4f6;
+  background-position: center;
+  background-attachment: contain;
+  background-size: cover;
+  background-attachment: fixed;
+  margin-bottom: 8rem;
+}
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+}

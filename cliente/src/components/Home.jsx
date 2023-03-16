@@ -22,6 +22,10 @@ const Home = () => {
     errorStock: false,
     msgPrecio: "El máximo es 999000",
     errorPrecio: false,
+    msgNombreProducto: "Campo requerido",
+    errorNombreProducto: false,
+    msgCategoria: "Campo requerido",
+    errorCategoria: false,
   });
 
   const enviarProducto = async (req, res) => {
@@ -32,13 +36,18 @@ const Home = () => {
         precio: precio,
         stock: stock,
       };
-      if (stock > 0 && stock <= 100 && precio > 0 && precio <= 999000) {
-        console.log(product);
+      if (
+        stock > 0 &&
+        stock <= 100 &&
+        precio > 0 &&
+        precio <= 999000 &&
+        nombreProducto != "" &&
+        categoria != ""
+      ) {
         const url = "http://localhost:8080/productos/agregarproductos";
         await axios
           .post(url, product)
           .then((res) => {
-            console.log(res.data);
             swal.fire("Ok", "Producto Creado", "success");
           })
           .then((err) => {
@@ -59,21 +68,22 @@ const Home = () => {
   return (
     <Box
       component="form"
-      sx={{ display: "flex", justifyContent: "center", marginTop: "8rem" }}
+      sx={{ display: "flex", justifyContent: "center", marginTop: "8rem",flexDirection:"column",alignItems:"center" }}
     >
+      <Typography fontFamily={"fantasy"} fontSize={"80px"} color={"#7066e0"}>Crud Mern</Typography>
       <Card
         sx={{
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
           flexDirection: "column",
-          width: "50%",
+          width: { xs: "100%", sm: "100%", md: "75%", lg: "300px%", xl: "50%" },
         }}
-      >
+        >
         <CardContent sx={{ display: "flex", flexDirection: "column" }}>
-          <Typography variant="h2">Ingrese un nuevo producto</Typography>
+          <Typography variant="h2" fontFamily={"revert"}>Ingrese un nuevo producto</Typography>
           <InputLabel htmlFor="component-helper">
-            Nompre del producto
+            Nombre del producto
           </InputLabel>
           <TextField
             fullWidth
@@ -88,10 +98,10 @@ const Home = () => {
           ></TextField>
           <InputLabel htmlFor="component-helper">Categoría</InputLabel>
           <TextField
-            placeholder="EJ: Teclados mecanicos"
+            placeholder="EJ: Teclados mecánicos"
             type="text"
             value={categoria}
-            required
+            required={true}
             onChange={(e) => {
               setCategoria(e.target.value);
             }}
