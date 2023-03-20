@@ -44,7 +44,7 @@ const Home = () => {
         nombreProducto != "" &&
         categoria != ""
       ) {
-        const url = "http://localhost:8080/productos/agregarproductos";
+        const url = "https://crud-mern-stack.onrender.com/productos/agregarproductos";
         await axios
           .post(url, product)
           .then((res) => {

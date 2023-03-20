@@ -11,7 +11,7 @@ export default function RecipeReviewCard({
 }) {
   const navegar = useNavigate();
   const borrarProducto = async () => {
-    let url = `http://localhost:8080/productos/borrar/${_id}`;
+    let url = `https://crud-mern-stack.onrender.com/productos/borrar/${_id}`;
     await axios.delete(url).then((res) => {
       console.log(res);
     });

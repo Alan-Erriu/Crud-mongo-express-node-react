@@ -9,7 +9,7 @@ const Products = () => {
   const [cargando, setcargando] = useState(true);
   useEffect(() => {
     const obtenerProductos = async () => {
-      const url = "http://localhost:8080/productos/verproductos";
+      const url = "https://crud-mern-stack.onrender.com/productos/verproductos";
       const productos = await axios.get(url);
       setProducts(productos.data.productos);
       setcargando(false);
