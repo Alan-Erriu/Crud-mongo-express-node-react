@@ -1,6 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
 import Card from "@mui/material/Card";
-import CardHeader from "@mui/material/CardHeader";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import { Button, CardActions } from "@mui/material";
@@ -47,7 +46,6 @@ export default function RecipeReviewCard({
         mt: "1rem",
       }}
     >
-      {/* <CardHeader title={nombreProducto} subheader={categoria} /> */}
 
       <CardContent>
         <Typography variant="h5" color="text.primary">
