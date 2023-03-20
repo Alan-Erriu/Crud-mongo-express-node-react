@@ -30,7 +30,7 @@ const CardEdit = ({
   });
   //Con axios pasamos la url concatenada con el id y en el body el objeto creado por el usuario
   const enviarProductoEditado = async (producto) => {
-    const url = `http://localhost:8080/productos/editarproducto/${_id}`;
+    const url = `https://crud-mern-stack.onrender.com/productos/editarproducto/${_id}`;
     await axios
     .put(url, producto)
     .then((res) => {
