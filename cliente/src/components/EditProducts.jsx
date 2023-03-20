@@ -11,7 +11,7 @@ const EditarProducto = () => {
   useEffect(() => {
     //pasamos el id obtenido como parametro para traer el producto del servidor
     const obtenerProducto = async () => {
-      const url = "http://localhost:8080/productos/obtenerproducto";
+      const url = "https://crud-mern-stack.onrender.com/productos/obtenerproducto";
       const item = await axios.post(url, { _id: params._id });
       setProducto(item.data.productos);
     };
