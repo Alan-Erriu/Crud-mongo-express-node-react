@@ -44,7 +44,8 @@ const Home = () => {
         nombreProducto != "" &&
         categoria != ""
       ) {
-        const url = "https://crud-mern-stack.onrender.com/productos/agregarproductos";
+        const url =
+          "https://crud-mern-stack.onrender.com/productos/agregarproductos";
         await axios
           .post(url, product)
           .then((res) => {
@@ -68,9 +69,17 @@ const Home = () => {
   return (
     <Box
       component="form"
-      sx={{ display: "flex", justifyContent: "center", marginTop: "8rem",flexDirection:"column",alignItems:"center" }}
+      sx={{
+        display: "flex",
+        justifyContent: "center",
+        marginTop: "8rem",
+        flexDirection: "column",
+        alignItems: "center",
+      }}
     >
-      <Typography fontFamily={"fantasy"} fontSize={"80px"} color={"#7066e0"}>Crud Mern</Typography>
+      <Typography fontFamily={"fantasy"} fontSize={"80px"} color={"#7066e0"}>
+        Crud Mern
+      </Typography>
       <Card
         sx={{
           display: "flex",
@@ -79,15 +88,16 @@ const Home = () => {
           flexDirection: "column",
           width: { xs: "100%", sm: "100%", md: "75%", lg: "300px%", xl: "50%" },
         }}
-        >
+      >
         <CardContent sx={{ display: "flex", flexDirection: "column" }}>
-          <Typography variant="h2" fontFamily={"revert"}>Ingrese un nuevo producto</Typography>
+          <Typography variant="h2" fontFamily={"revert"}>
+            Ingrese un nuevo producto
+          </Typography>
           <InputLabel htmlFor="component-helper">
             Nombre del producto
           </InputLabel>
           <TextField
             fullWidth
-            label={nombreProducto}
             type="text"
             required
             placeholder="EJ: Teclado gamer razer"

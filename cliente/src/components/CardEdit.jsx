@@ -44,7 +44,7 @@ const CardEdit = ({
 //esta función crea un objeto con los datos ingresados por el usuario, luego se envia con la funcion enviarProductoEditado()
   const editarProducto = async () => {
     try {
-      if (quantity > 0 && quantity <= 100 && price > 0 && price <= 999000 || quantity ==="" || price ==="") {
+      if (quantity > 0 && quantity <= 100 && price > 0 && price <= 999000) {
         const producto = {
           nombreProducto: nameProduct === ""? nombreProducto :nameProduct,
           categoria: category === "" ? categoria :category,

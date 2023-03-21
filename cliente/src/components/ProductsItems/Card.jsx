@@ -58,9 +58,9 @@ export default function RecipeReviewCard({
           <br />
          <strong>Categoría:</strong>  {categoria} <br />
           <br />
-          <strong> Precio:</strong> {precio} <br />
+          <strong> Precio:</strong> ${precio} <br />
           <br />
-          <strong> En stock:</strong> ${stock}<br /><br />
+          <strong> En stock:</strong> {stock}<br /><br />
           <strong>Código de producto:</strong><br /> {_id} <br />
           <br />
         </Typography>

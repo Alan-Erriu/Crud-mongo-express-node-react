@@ -8,7 +8,7 @@ const productsRouter = require("./routes/products");
 // const bodyParser=require("body-parser")
 
 const app = express();
-const whiteList = ["http://localhost:5173", "http://localhost:3000"];
+const whiteList = ["http://localhost:5173", "http://localhost:3000","https://aeimportaciones.netlify.app"];
 app.use(
   cors({
     origin: whiteList,
