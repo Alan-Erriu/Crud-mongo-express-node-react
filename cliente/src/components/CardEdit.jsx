@@ -32,24 +32,24 @@ const CardEdit = ({
   const enviarProductoEditado = async (producto) => {
     const url = `https://crud-mern-stack.onrender.com/productos/editarproducto/${_id}`;
     await axios
-    .put(url, producto)
-    .then((res) => {
-      navegar("/products");
+      .put(url, producto)
+      .then((res) => {
+        navegar("/products");
         swal.fire("Ok", "Producto modificado exitosamente", "success");
       })
       .then((err) => {
         console.log(err);
       });
-    };
-//esta función crea un objeto con los datos ingresados por el usuario, luego se envia con la funcion enviarProductoEditado()
+  };
+  //esta función crea un objeto con los datos ingresados por el usuario, luego se envia con la funcion enviarProductoEditado()
   const editarProducto = async () => {
     try {
       if (quantity > 0 && quantity <= 100 && price > 0 && price <= 999000) {
         const producto = {
-          nombreProducto: nameProduct === ""? nombreProducto :nameProduct,
-          categoria: category === "" ? categoria :category,
-          precio: price === "" ? precio :price,
-          stock: quantity === "" ? stock :quantity,
+          nombreProducto: nameProduct === "" ? nombreProducto : nameProduct,
+          categoria: category === "" ? categoria : category,
+          precio: price === "" ? precio : price,
+          stock: quantity === "" ? stock : quantity,
         };
         await enviarProductoEditado(producto);
       } else {
