@@ -77,7 +77,7 @@ const Home = () => {
         alignItems: "center",
       }}
     >
-      <Typography fontFamily={"fantasy"} fontSize={"80px"} color={"#7066e0"}>
+      <Typography textAlign={"center"} fontFamily={"fantasy"} fontSize={"80px"} color={"#7066e0"}>
         Crud Mern
       </Typography>
       <Card
@@ -90,7 +90,7 @@ const Home = () => {
         }}
       >
         <CardContent sx={{ display: "flex", flexDirection: "column" }}>
-          <Typography variant="h2" fontFamily={"revert"}>
+          <Typography sx={{mb:"1rem"}} variant="h4" fontFamily={"inherit"} textAlign={"center"}>
             Ingrese un nuevo producto
           </Typography>
           <InputLabel htmlFor="component-helper">

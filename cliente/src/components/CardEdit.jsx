@@ -44,7 +44,9 @@ const CardEdit = ({
   //esta función crea un objeto con los datos ingresados por el usuario, luego se envia con la funcion enviarProductoEditado()
   const editarProducto = async () => {
     try {
+   // precio y stock no pueden ser menor a 1, precio no puede ser mayor a  999000 y quantity a 100   
       if (quantity > 0 && quantity <= 100 && price > 0 && price <= 999000) {
+        // si el cliente ingreso un nuevo valor, se actualiza el estado, de lo contrario conserva su valor inicial
         const producto = {
           nombreProducto: nameProduct === "" ? nombreProducto : nameProduct,
           categoria: category === "" ? categoria : category,
@@ -52,7 +54,36 @@ const CardEdit = ({
           stock: quantity === "" ? stock : quantity,
         };
         await enviarProductoEditado(producto);
-      } else {
+        // precio conserva su valor por defecto y stock no puede ser menor a 1 ni mayor a 100  
+      } else if (price === "" && quantity > 0 && quantity <= 100  ) {
+        const producto = {
+          nombreProducto: nameProduct === "" ? nombreProducto : nameProduct,
+          categoria: category === "" ? categoria : category,
+          precio: price === "" ? precio : price,
+          stock: quantity === "" ? stock : quantity,
+        };
+        await enviarProductoEditado(producto);
+        // stock conserva su valor por defecto y precio no puede ser menor a 1 ni mayor a 999000 
+      } else if (quantity === "" && price > 0 && price <= 999000 ) {
+        const producto = {
+          nombreProducto: nameProduct === "" ? nombreProducto : nameProduct,
+          categoria: category === "" ? categoria : category,
+          precio: price === "" ? precio : price,
+          stock: quantity === "" ? stock : quantity,
+        };
+        await enviarProductoEditado(producto);
+        // precio y stock conservan su valor por defecto
+      } else if (quantity === "" && price === "" ) {
+        const producto = {
+          nombreProducto: nameProduct === "" ? nombreProducto : nameProduct,
+          categoria: category === "" ? categoria : category,
+          precio: price === "" ? precio : price,
+          stock: quantity === "" ? stock : quantity,
+        };
+        await enviarProductoEditado(producto);
+      } 
+      // Si stock es menor a 1 o mayor a 100 o precio menor 1 o mayor a  999000. Sale un alerta x
+       else {
         swal.fire({
           icon: "error",
           title: "Oops...",
@@ -115,7 +146,7 @@ const CardEdit = ({
             inputProps={{ min: 0, max: 100 }}
             variant="outlined"
             required
-            defaultValue={precio}
+            defaultValue={precio.toFixed(3)}
             error={price < 0 || price > 999000}
             helperText={
               price < 0 || price > 999000 ? error.msgPrecio : error.errorPrecio
