@@ -1,5 +1,5 @@
 # CRUD MERN STACK (MONGODB,EXPRESS,REACT.JS Y NODE.JS)
- manejo de peticiones get/post/put/delete, e implementación de base de datos con mongoDB
+ Manejo de peticiones get/post/put/delete, e implementación de base de datos con mongoDB
 interfaz grafica con react.js y material ui
 
 ## Link al sitio: https://aeimportaciones.netlify.app
